@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bouphy53ranjr"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_d4kq7"]
+[ext_resource type="PackedScene" uid="uid://c8m2sg6ax8ukp" path="res://hud.tscn" id="2_b3or8"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d4kq7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.407843, 0.254902, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 200
+metadata/_edit_use_anchors_ = true
+
+[node name="grid" type="GridContainer" parent="Margin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+columns = 13
+
+[node name="HUD" parent="." instance=ExtResource("2_b3or8")]
+layout_mode = 1

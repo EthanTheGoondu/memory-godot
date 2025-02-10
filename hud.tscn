@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8m2sg6ax8ukp"]
+
+[ext_resource type="Theme" uid="uid://b2rousfmmqqf0" path="res://theme.tres" id="1_6nn4y"]
+[ext_resource type="FontFile" uid="uid://cemklqqm3cmk6" path="res://assets/fonts/Nunito-Regular.ttf" id="1_n6814"]
+[ext_resource type="FontFile" uid="uid://dea0tgj7i5apy" path="res://assets/fonts/Nunito-Bold.ttf" id="2_3slo3"]
+[ext_resource type="Texture2D" uid="uid://b2w44ghi1bkin" path="res://assets/ui/pause.png" id="3_tw8al"]
+[ext_resource type="Texture2D" uid="uid://ds1xi3wehjenn" path="res://assets/ui/return.png" id="4_302qy"]
+[ext_resource type="Script" path="res://button_pause.gd" id="5_42bxa"]
+
+[sub_resource type="GDScript" id="GDScript_r4h7w"]
+script/source = "extends TextureButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _pressed():
+	pass
+"
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_6nn4y")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 640
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 40
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Sections" type="HBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SectionScore" type="VBoxContainer" parent="MarginContainer/Panel/Sections"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/Sections/SectionScore"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("1_n6814")
+theme_override_font_sizes/font_size = 35
+text = "Score:"
+
+[node name="score" type="Label" parent="MarginContainer/Panel/Sections/SectionScore"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_3slo3")
+theme_override_font_sizes/font_size = 110
+text = "##"
+
+[node name="SectionTimer" type="VBoxContainer" parent="MarginContainer/Panel/Sections"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/Sections/SectionTimer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("1_n6814")
+theme_override_font_sizes/font_size = 35
+text = "Time:"
+
+[node name="seconds" type="Label" parent="MarginContainer/Panel/Sections/SectionTimer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_3slo3")
+theme_override_font_sizes/font_size = 110
+text = "##"
+
+[node name="SectionMoves" type="VBoxContainer" parent="MarginContainer/Panel/Sections"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/Sections/SectionMoves"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("1_n6814")
+theme_override_font_sizes/font_size = 35
+text = "Pairs Flipped:"
+
+[node name="moves" type="Label" parent="MarginContainer/Panel/Sections/SectionMoves"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_3slo3")
+theme_override_font_sizes/font_size = 110
+text = "##"
+
+[node name="SectionButtons" type="VBoxContainer" parent="MarginContainer/Panel/Sections"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="ButtonPause" type="TextureButton" parent="MarginContainer/Panel/Sections/SectionButtons"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("3_tw8al")
+stretch_mode = 5
+script = ExtResource("5_42bxa")
+
+[node name="ButtonReset" type="TextureButton" parent="MarginContainer/Panel/Sections/SectionButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_302qy")
+stretch_mode = 5
+script = SubResource("GDScript_r4h7w")
