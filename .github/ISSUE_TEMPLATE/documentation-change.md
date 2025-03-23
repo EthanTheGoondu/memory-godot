@@ -10,7 +10,7 @@ assignees: ''
 ### Problem description
 A clear and concise description of what the problem is. Ex. This page does not include [...]
 
-### Describe the change you'd like
+### What we want
 A clear and concise description of the documentation change you want.
 
 ### Additional context

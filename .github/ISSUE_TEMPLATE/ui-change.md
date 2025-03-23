@@ -10,7 +10,7 @@ assignees: ''
 ### Problem description
 A clear and concise description of what the problem is. Ex. Previously in this menu [...]
 
-### Describe the change you'd like
+### What we want
 A clear and concise description of the UI change you want.
 
 ### Screenshots
